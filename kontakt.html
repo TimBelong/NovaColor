@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NovaColor</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="container">
+                <div class="wrapper">
+                    <div class="header_logo">
+                        <a href="/">
+                            <img src="img/Logo.png" alt="logo">
+                        </a>
+                    </div>
+
+                    <div class="burger__menu" id="burgerOpen">
+                        <span></span>
+                    </div>
+
+                    <div class="nav_menu">
+                        <div class="burger">
+                            <div class="burger__menu _active" id="burgerClose">
+                                <span></span>
+                            </div>
+                        </div>
+                        <nav>
+                            <ul>
+                                <li><a href="/">Home</a></li>
+                                <li><a href="omitky.html">Omitky</a></li>
+                                <li><a href="inspirace.html">Inspirace</a></li>
+                                <li><a href="novacolor.html">Novacolor</a></li>
+                                <li><a href="about-us.html">O nás</a></li>
+                                <li><a href="reference.html">Reference</a></li>
+                                <li><a href="kontakt.html">Kontakt</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="main-banner" style="background-image: url(img/Kontakt/main_banner.png);">
+            <div class="container">
+                <div class="wrapper">
+                    <h1 class="title">
+                        Štěrka na zeď
+                    </h1>
+                    <div class="subtitle">
+                        <p>novacolor@novacolordesign.cz</p>
+                        <p>+420 774 771 779</p>
+                        <p>Jeseniova 2853/22, Praha 3 Žižkov, PSČ 130 00</p>
+                    </div>
+
+                    <button href="#" class="btn">Kontaktujte nás</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="contact_form">
+            <div class="container">
+                <div class="wrapper">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2560.0226460063654!2d14.455410476881234!3d50.085862871524796!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470b949fef62d7d3%3A0x92cf5a471ba9e946!2sJeseniova%202853%2F22%2C%20130%2000%20Praha%203-%C5%BDi%C5%BEkov!5e0!3m2!1sru!2scz!4v1697457409146!5m2!1sru!2scz"
+                        style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+
+                    <div class="form">
+                        <form method="POST" action="sendmail.php" id="contact-form" class="form__body">
+                            <h2>Napište nám</h2>
+                            <input id="formName" type="text" name="name" class="form_input _req"
+                                placeholder="Jmeno a příjmení">
+
+                            <input id="formEmail" type="text" name="email" class="form_input _req _email"
+                                placeholder="E-mail">
+
+                            <input id="formNumber" type="number" name="phone" class="form_input _number"
+                                placeholder="Telefon">
+
+                            <textarea id="formMessage" type="number" name="message" class="form_input"
+                                placeholder="Popis a rozsah prací, které poptáváte"></textarea>
+
+                            <button type="submit" class="form_button btn">odeslat</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <footer>
+            <div class="container">
+                <div class="wrapper">
+                    <div class="footer_cover">
+                        <div class="footer_item">
+                            <div class="footer_title">
+                                UŽITEČNÉ ČLÁNKY
+                            </div>
+
+                            <div class="footer_txt">
+                                Dekorativní stěrka jako materiál pro interiérovou výzdobu
+                                Využití dekorativní stěrky pro interiér
+                            </div>
+                        </div>
+
+                        <div class="footer_item">
+                            <div class="footer_title">
+                                RÁDI TVOŘÍME
+                            </div>
+
+                            <div class="footer_txt">
+                                <a href="tel:+420774771779">+420 774 771 779</a>
+                                <a href="mailto:novacolor@novacolordesign.cz">novacolor@novacolordesign.cz</a>
+                            </div>
+                        </div>
+
+                        <div class="footer_item">
+                            <div class="footer_title">
+                                NAVŠTIVTE NÁS
+                            </div>
+                            <div class="footer_txt">
+                                Jeseniova 2853/22, Praha 3 Žižkov, PSČ 130 00
+                            </div>
+                        </div>
+
+                        <div class="footer_item">
+                            <div class="footer_title">
+                                Sledujte nás
+                            </div>
+                            <div class="social_links">
+                                <img src="img/Main/youtube.png" alt="novacolor">
+                                <img src="img/Main/instagram.png" alt="novacolor">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="copyright">
+                        © 2023 sterkanazed.cz
+                    </div>
+                </div>
+
+            </div>
+        </footer>
+    </div>
+    <script src="js/script.js"></script>
+</body>
+
+</html>
