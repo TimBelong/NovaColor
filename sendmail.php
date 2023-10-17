@@ -23,7 +23,8 @@ $mail->SMTPSecure = "ssl";
 $mail->setFrom($from, $namefrom);
 $mail->Subject = 'Zpětná vazba z formuláře od: ' . $namefrom;
 $mail->isHTML();
-$mail->addCC('mrbelongtim@gmail.com', 'Admin');
+$mail->addCC('novacolor@novacolordesign.cz', 'Admin 1');
+$mail->addCC('info@sterkanazed.cz', 'Admin 2');
 
 $body = '<h1>Nové upozornění</h1>';
 
