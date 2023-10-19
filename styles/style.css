@@ -179,10 +179,8 @@ header .header_logo img{
     position: fixed;
     top: -100%;
     left: 0;
-    bottom: 0;
-    right: 0;
     width: 100%;
-    height: 100vh;
+    height: 100%;
     background-color: var(--white);
     overflow-x: hidden;
     transition: all .5s ease;
@@ -886,7 +884,9 @@ footer a {
         margin-top: 0px;
     }
 
-
+    .full_screen_image img {
+        width: 100%
+    }
 
     .txt_descr h2{
 
@@ -1411,7 +1411,7 @@ footer a {
 }
 
 .full_screen_image img {
-    width: 100%;
+    width: 90%;
     height: 90%;
     object-fit: contain;
     cursor: pointer;
