@@ -12,12 +12,12 @@ $mail->CharSet = 'UTF-8';
 $mail->isSMTP();
 $mail->SMTPAuth = true;
 
-$from = 'novacolor@sterkanazed.cz';
+$from = 'info@sterkanazed.cz';
 $namefrom = 'Novacolor';
 $mail->Host = "server303.web-hosting.com";
 $mail->Port = 465;
 $mail->Username = $from;
-$mail->Password = "8IgMv{cI(7SG";
+$mail->Password = "Novacolor777";
 $mail->SMTPSecure = "ssl";
 
 $mail->setFrom($from, $namefrom);

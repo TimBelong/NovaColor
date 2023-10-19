@@ -16,7 +16,7 @@ window.addEventListener('DOMContentLoaded', function(){
 
     
     let burgerOpen = document.querySelector('#burgerOpen'),
-        mobileMenu = document.querySelector('.nav_menu');
+        mobileMenu = document.querySelector('.mobile_nav');
         burgerClose = document.querySelector('#burgerClose');
 
     burgerOpen.addEventListener('click', ()=>{ 
@@ -53,6 +53,34 @@ window.addEventListener('DOMContentLoaded', function(){
         });
     });
 
+    const images = document.querySelectorAll('.gallery_item');
+
+    images.forEach(function(image) {
+        image.addEventListener('click', function() {
+            const fullScreenImage = document.createElement('div');
+            fullScreenImage.classList.add('full_screen_image');
+
+            const img = document.createElement('img');
+            img.src = this.src;
+            img.alt = this.alt;
+            fullScreenImage.appendChild(img);
+
+            document.body.appendChild(fullScreenImage);
+
+            setTimeout(function() {
+                fullScreenImage.classList.add('show');
+            }, 10);
+
+            fullScreenImage.addEventListener('click', function() {
+                fullScreenImage.classList.remove('show');
+
+                fullScreenImage.addEventListener('transitionend', function() {
+                    document.body.removeChild(fullScreenImage);
+                }, { once: true });
+            });
+        });
+    });
+
 
     const form = document.getElementById('contact-form');
 
@@ -72,8 +100,6 @@ window.addEventListener('DOMContentLoaded', function(){
             });
 
             if(response.ok){
-                let result = await response.json();
-                alert(result.message);
                 form.reset();
                 form.classList.remove('_sending');
             } else {
