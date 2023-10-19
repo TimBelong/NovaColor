@@ -206,11 +206,20 @@ header .header_logo img{
     right: 10%;
 }
 
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
 nav ul {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
     gap: 50px;
     text-align: center;
+    margin: 0;
 }
 
 nav ul li {
@@ -218,7 +227,7 @@ nav ul li {
 }
 
 .breadcrumbs {
-    margin-top: 100px;
+    margin-top: 88px;
     display: none;
     width: 100%;
     height: 60px;
@@ -226,7 +235,7 @@ nav ul li {
 
 .breadcrumbs .container {
     height: 80%;
-    padding: 0px 180px;
+    padding: 15px 180px;
     padding-top: 5px;
 }
 
@@ -363,16 +372,22 @@ nav ul li {
     width: 100%;
 }
 
-.services .btn {
+.services .btn, .gallery .btn, .txt_section .btn {
     color: var(--black);
     border: 2px solid var(--black);
     width: 40%;
     font-size: 0.8rem;
     letter-spacing: 0;
-    margin-top: 20px;
+    margin-top: 63px;
     bottom: 0;
 }
 
+.gallery .btn, .txt_section .btn{
+    width: 20%;
+    margin: 0 auto;
+    font-size: 1rem;
+    margin-top: 63px;
+}
 
 .services .service_title {
     font-size: 1.2rem;
@@ -665,18 +680,7 @@ nav ul li {
     transition: 0.5s
 }
 
-/* .gallery_wrapper img:hover {
-    transform: scale(1.2)
-} */
 
-.gallery .btn {
-    color: var(--black);
-    border: 2px solid var(--black);
-    padding: 10px 10px;
-    margin: 0 auto;
-    font-family: 'Open Sans', sans-serif;
-    letter-spacing: 0;
-}
 
 .darker {
     background-color: var(--black);
@@ -722,20 +726,12 @@ nav ul li {
     -moz-box-shadow: 0px 0px 9px -2px rgba(191, 198, 225, 1);
     box-shadow: 0px 0px 9px -2px rgba(191, 198, 225, 1);
     margin: 10px 10px;
+    margin-top: 0px;
     text-justify: distribute-all-lines;
 }
 
 .txt_section .txt_descr .title {
     margin: 20px 0;
-}
-
-.txt_section .btn {
-    color: var(--black);
-    border: 2px solid var(--black);
-    font-size: 1rem;
-    letter-spacing: 0;
-    margin: 20px auto;
-    margin-top: 63px;
 }
 
 .contact_form {
@@ -1022,9 +1018,7 @@ footer a {
         width: 50%;
     }
 
-    .gallery .btn{
-        margin-top: 63px;
-    }
+
 
     .colored_bg {
         height: 500px;
@@ -1240,7 +1234,7 @@ footer a {
     }
 
     .gallery .container {
-        padding: 40px 180px;
+        padding: 0px 180px;
     }
 
     .gallery_wrapper img {
@@ -1250,7 +1244,7 @@ footer a {
     }
 
     .txt_section .container {
-        padding: 20px 180px;
+        padding: 0px 180px;
     }
 
 
@@ -1259,7 +1253,7 @@ footer a {
     }
 
     .services .container {
-        padding: 40px 180px;
+        padding: 0px 180px;
     }
 
     footer .container {
@@ -1267,7 +1261,7 @@ footer a {
     }
 
     .colors .container {
-        padding: 40px 180px;
+        padding: 0px 180px;
     }
 
     .color_item {
