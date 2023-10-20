@@ -31,7 +31,7 @@ h3,
 h4,
 h5,
 h6 {
-    margin: 10px 0;
+    margin-bottom: 10px;
     font-family: "Playfair Display" !important;
 }
 
@@ -61,7 +61,7 @@ h3 {
 ul,
 ol {
     margin: 10px 0;
-    margin-left: 30px;
+    margin-left: 20px;
     line-height: 25px;
 }
 
@@ -76,6 +76,10 @@ a {
 
 img {
     border-radius: 2px;
+}
+
+.mb {
+    margin-bottom: 60px !important;
 }
 
 html {
@@ -275,6 +279,7 @@ nav ul li {
     background-position: 60% 70%;
     background-size: cover;
     background-repeat: no-repeat;
+    margin-bottom: 60px;
 }
 
 .main-banner .container {
@@ -309,21 +314,27 @@ nav ul li {
     gap: 10px;
 }
 
+.main-banner .btn{
+    border: 2px solid var(--white);
+    font-size: 1.2rem;
+}
+
 
 .btn {
-    display: inline-block;
+    height: 25px;
+    padding: 13px 25px 13px 25px;
     color: var(--white);
-    padding: 15px 15px;
-    border-radius: 5px solid white;
-    background-color: transparent;
-    border: none;
-    outline: none;
-    border: 1px solid white;
-    letter-spacing: 5px;
-    text-transform: uppercase;
+    border: 0;
+    border-radius: 2px;
     cursor: pointer;
+    font-size: 14px;
+    line-height: 25px;
+    font-weight: 700;
     text-align: center;
+    border-radius: 2px;
     text-decoration: none !important;
+    text-transform: uppercase;
+    font-family: 'Open Sans', sans-serif !important;
 }
 
 .btn:hover {
@@ -339,7 +350,8 @@ nav ul li {
 }
 
 .services .container {
-    padding: 40px 10px;
+    padding: 0px 10px;
+    height: 100%;
 }
 
 .services .container .wrapper {
@@ -356,15 +368,29 @@ nav ul li {
 
 .services .service_item {
     width: 300px;
+    height: 100%;
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
     gap: 10px;
 }
 
+.services .service_item .service_content{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 10px;
+}
+
+.services .service_item .service_content .service_descr{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
 .services .service_item.product_item {
     width: 35%;
 }
+
 
 .services .service_item.product_item {
     justify-content: flex-end;
@@ -387,22 +413,32 @@ nav ul li {
 .services .btn, .gallery .btn, .txt_section .btn {
     color: var(--black);
     border: 2px solid var(--black);
-    width: 40%;
-    font-size: 0.8rem;
-    letter-spacing: 0;
-    margin-top: 63px;
-    bottom: 0;
 }
 
+.txt_section h3{
+    margin: 10px;
+    margin-left: 0px;
+}
+
+.txt_btn{
+    margin: 63px auto;
+}
 .gallery .btn, .txt_section .btn{
-    width: 20%;
     margin: 0 auto;
-    font-size: 1rem;
     margin-top: 63px;
+    font-size: 1rem;
+}
+
+.gallery .title{
+    margin-bottom: 0;
 }
 
 .services .service_title {
     font-size: 1.2rem;
+}
+
+.service_btn-mob{
+    margin-top: 20px;
 }
 
 .colored_bg {
@@ -432,7 +468,7 @@ nav ul li {
 }
 
 .colors .container {
-    padding: 40px 10px;
+    padding: 0px 10px;
 }
 
 .colors .container .wrapper {
@@ -667,7 +703,7 @@ nav ul li {
 }
 
 .gallery .container {
-    padding: 40px 10px;
+    padding: 0px 10px;
 }
 
 .gallery .container .wrapper {
@@ -708,9 +744,7 @@ nav ul li {
     text-decoration: underline;
 }
 
-.txt_section .container {
-    padding: 20px 0px;
-}
+
 
 .txt_section .txt_item {
     display: flex;
@@ -719,7 +753,7 @@ nav ul li {
 }
 
 .txt_section .txt_item .title {
-    margin: 20px;
+    margin-bottom: 20px;
     margin-left: 10px;
 }
 
@@ -817,7 +851,6 @@ form textarea {
 form .btn {
     color: var(--black);
     border: 2px solid var(--black);
-    width: 50%;
 }
 
 footer {
@@ -985,6 +1018,7 @@ footer a {
     }
 
     .txt_section h3{
+        margin: 10px;
         font-size: 1.2rem;
     }
 
@@ -1002,11 +1036,10 @@ footer a {
         background-position: 60% 70%;
         background-size: cover;
         background-repeat: no-repeat;
-        margin-bottom: 60px;
     }
 
     .services .container {
-        padding: 40px 50px;
+        padding: 0px 50px;
     }
 
     .services .container .wrapper {
@@ -1029,7 +1062,7 @@ footer a {
         width: 50%;
     }
 
-
+ 
 
     .colored_bg {
         height: 500px;
@@ -1045,16 +1078,15 @@ footer a {
     }
 
     .colored_bg .btn {
-        width: 40%;
         font-size: 1rem;
     }
 
     .colors .container {
-        padding: 40px 50px;
+        padding: 0px 50px;
     }
 
     .gallery .container {
-        padding: 40px 50px;
+        padding: 0px 50px;
     }
 
     .gallery_wrapper {
@@ -1073,7 +1105,7 @@ footer a {
     }
 
     .txt_section .container {
-        padding: 20px 50px;
+        padding: 0px 50px;
     }
 
     .txt_section .txt_item {
@@ -1121,7 +1153,7 @@ footer a {
     }
 
     .contact_form .container {
-        padding: 40px 50px;
+        padding: 0px 50px;
     }
 
     .contact_form .container .wrapper {
@@ -1134,6 +1166,11 @@ footer a {
 
     .form {
         width: 50%;
+        
+    }
+
+    form{
+        margin-top: 0px;
     }
 
     .contact_form .container .wrapper iframe {
@@ -1175,7 +1212,7 @@ footer a {
     }
 
     .colors .container {
-        padding: 40px 80px;
+        padding: 00px 80px;
     }
 
 
@@ -1221,10 +1258,6 @@ footer a {
         width: 30px;
     }
 
-    .mb {
-        margin-bottom: 60px !important;
-    }
-
     .mt100{
         margin-top: 85px !important;
     }
@@ -1256,9 +1289,6 @@ footer a {
 
     .txt_section .container {
         padding: 0px 180px;
-    }
-    .services .btn.btnmt{
-        margin-top: 85px;
     }
 
     .txt_item.reverse .txt_cover img {
