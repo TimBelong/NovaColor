@@ -247,12 +247,24 @@ nav ul li {
 }
 
 .breadcrumbs a {
-    text-decoration: underline;
     color: var(--black);
     cursor: pointer;
+    position: relative;
 }
 
-.breadcrumbs a:last-child {
+.breadcrumbs a::after {
+    content: "";
+    display: block;
+    height: 1px;
+    width: 100%;
+    background-color: var(--black);
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    transition: width 0.3s;
+}
+
+.breadcrumbs{
     color: var(--text-secondary)
 }
 
@@ -727,7 +739,6 @@ nav ul li {
     box-shadow: 0px 0px 9px -2px rgba(191, 198, 225, 1);
     margin: 10px 10px;
     margin-top: 0px;
-    text-justify: distribute-all-lines;
 }
 
 .txt_section .txt_descr .title {
@@ -1246,10 +1257,16 @@ footer a {
     .txt_section .container {
         padding: 0px 180px;
     }
-
+    .services .btn.btnmt{
+        margin-top: 85px;
+    }
 
     .txt_item.reverse .txt_cover img {
         width: 48.2%;
+    }
+
+    .services .service_item {
+        justify-content: flex-start;
     }
 
     .services .container {
@@ -1283,8 +1300,7 @@ footer a {
         font-size: 2.5rem;
     }
 
-    .mt20,
-    .mt {
+    .mt20{
         margin-top: 20px !important;
     }
 
@@ -1294,7 +1310,10 @@ footer a {
         transition: 0.5s
     }
 
-
+    .services .btn.btnmt{
+        margin-top: 63px;
+    }
+    
     .color_item {
         height: 72px;
         width: 65px;
