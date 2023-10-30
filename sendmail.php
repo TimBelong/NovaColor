@@ -2,33 +2,21 @@
 
 use PHPMailer\PHPMailer\PHPMailer;
 
+require_once 'recaptcha/src/autoload.php';
+
 require 'PHPMailer/src/Exception.php';
 require 'PHPMailer/src/PHPMailer.php';
 require 'PHPMailer/src/SMTP.php';
 
 // Подключение к Google reCAPTCHA
 $recaptchaSecretKey = '6LfgRdQoAAAAAPrv7_2Du6rwzZMspqh-a1pXryGV';
-$recaptchaResponse = isset($_POST['g-recaptcha-response']) ? $_POST['g-recaptcha-response'] : null;
+$recaptchaResponse = isset($_POST['recaptchaToken']) ? $_POST['recaptchaToken'] : null;
 
-$recaptchaUrl = 'https://www.google.com/recaptcha/api/siteverify?secret=$secret&response=$response&remoteip=$ip"';
-$recaptchaPostData = http_build_query([
-    'secret' => $recaptchaSecretKey,
-    'response' => $recaptchaResponse
-]);
+$recaptcha = new ReCaptcha\ReCaptcha($recaptchaSecretKey);
+$resp = $recaptcha->verify($recaptchaResponse);
 
-$recaptchaOptions = [
-    'http' => [
-        'header' => "Content-type: application/x-www-form-urlencoded\r\n",
-        'method' => 'POST',
-        'content' => $recaptchaPostData
-    ]
-];
-
-$recaptchaContext = stream_context_create($recaptchaOptions);
-$recaptchaResult = json_decode(file_get_contents($recaptchaUrl, false, $recaptchaContext), true);
-
-if ($recaptchaResult && $recaptchaResult['success']) {
-    // Если reCAPTCHA успешно пройдена
+if ($resp->isSuccess()) {
+    // Если reCAPTCHA успешно пройдена (действительно?))
     $mail = new PHPMailer(true);
     $mail->SMTPDebug = 0;
     $mail->CharSet = 'UTF-8';

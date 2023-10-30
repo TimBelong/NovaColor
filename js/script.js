@@ -88,10 +88,9 @@ window.addEventListener('DOMContentLoaded', function () {
     const form = document.getElementById('contact-form');
     const recaptchaKey = '6LfgRdQoAAAAAPrv7_2Du6rwzZMspqh-a1pXryGV';
 
-
     form.addEventListener('submit', formSend);
 
-    async function formSend(e) {
+    function formSend(e) {
         e.preventDefault();
 
         let error = formValidate(form);
@@ -103,28 +102,29 @@ window.addEventListener('DOMContentLoaded', function () {
             return;
         }
 
-        let recaptchaResponse = grecaptcha.getResponse();
-        if (recaptchaResponse.length === 0) {
-            alert('Potvrďte, že nejste robot.');
-            return;
-        }
-
         if (error === 0) {
-            form.classList.add('_sending');
-            let response = await fetch('sendmail.php', {
-                method: 'POST',
-                body: formData
-            });
+            grecaptcha.ready(function() {
+                grecaptcha.execute(recaptchaKey, {action: 'submit'}).then(async function(token) {
+                    formData.append('recaptchaToken', token);
+                    form.classList.add('_sending');
 
-            if (response.ok) {
-                form.reset();
-                form.classList.remove('_sending');
-            } else {
-                alert('Chyba při odesílání formuláře');
-                form.classList.remove('_sending');
-            }
-        } else
+                    let response = await fetch(form.getAttribute('action'), {
+                        method: 'POST',
+                        body: formData
+                    });
+
+                    if (response.ok) {
+                        form.reset();
+                        form.classList.remove('_sending');
+                    } else {
+                        alert('Chyba při odesílání formuláře');
+                        form.classList.remove('_sending');
+                    }
+                });
+            });
+        } else {
             alert('Vyplňte všechna pole');
+        }
     }
 
 
