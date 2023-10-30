@@ -1,30 +1,30 @@
-window.addEventListener('DOMContentLoaded', function(){
+window.addEventListener('DOMContentLoaded', function () {
 
-    window.addEventListener('load', function() {
+    window.addEventListener('load', function () {
         const preloader = document.querySelector('.preloader');
         const mainContent = document.querySelector('body');
-    
-       
-        setTimeout(function() {
+
+
+        setTimeout(function () {
             preloader.style.opacity = '0';
-            setTimeout(function() {
+            setTimeout(function () {
                 preloader.style.display = 'none';
                 mainContent.style.display = 'block';
-            }, 500); 
-        }, 1000); 
+            }, 500);
+        }, 1000);
     });
 
-    
+
     let burgerOpen = document.querySelector('#burgerOpen'),
         mobileMenu = document.querySelector('.mobile_nav');
-        burgerClose = document.querySelector('#burgerClose');
+    burgerClose = document.querySelector('#burgerClose');
 
-    burgerOpen.addEventListener('click', ()=>{ 
+    burgerOpen.addEventListener('click', () => {
         mobileMenu.classList.add('_active');
-        document.body.style.overflowY = 'hidden'; 
+        document.body.style.overflowY = 'hidden';
     });
 
-    burgerClose.addEventListener('click', ()=>{ 
+    burgerClose.addEventListener('click', () => {
         mobileMenu.classList.remove('_active');
         document.body.style.overflowY = 'auto';
     });
@@ -43,7 +43,8 @@ window.addEventListener('DOMContentLoaded', function(){
         "C1201/C1201", "C1202/C1202", "C1203/C1203", "C1204/C1204", "C1300/C1300",
         "C1301/C1301", "C1302/C1302", "C1303/C1303", "C1304/C1304", "C1305/C1305",
         "C1306/C1306", "C1307/C1307", "C1308/C1308", "C1310/C1310", "C1312/C1312",
-        "C1313/C1313", "C1501/C1501", "C1502/C1502" ];
+        "C1313/C1313", "C1501/C1501", "C1502/C1502"
+    ];
 
     colorItems.forEach((item, index) => {
         item.addEventListener('click', () => {
@@ -55,8 +56,8 @@ window.addEventListener('DOMContentLoaded', function(){
 
     const images = document.querySelectorAll('.gallery_item');
 
-    images.forEach(function(image) {
-        image.addEventListener('click', function() {
+    images.forEach(function (image) {
+        image.addEventListener('click', function () {
             const fullScreenImage = document.createElement('div');
             fullScreenImage.classList.add('full_screen_image');
 
@@ -67,68 +68,82 @@ window.addEventListener('DOMContentLoaded', function(){
 
             document.body.appendChild(fullScreenImage);
 
-            setTimeout(function() {
+            setTimeout(function () {
                 fullScreenImage.classList.add('show');
             }, 10);
 
-            fullScreenImage.addEventListener('click', function() {
+            fullScreenImage.addEventListener('click', function () {
                 fullScreenImage.classList.remove('show');
 
-                fullScreenImage.addEventListener('transitionend', function() {
+                fullScreenImage.addEventListener('transitionend', function () {
                     document.body.removeChild(fullScreenImage);
-                }, { once: true });
+                }, {
+                    once: true
+                });
             });
         });
     });
 
 
     const form = document.getElementById('contact-form');
+    const recaptchaKey = '6LfgRdQoAAAAAPrv7_2Du6rwzZMspqh-a1pXryGV';
+
 
     form.addEventListener('submit', formSend);
 
-    async function formSend(e){
+    async function formSend(e) {
         e.preventDefault();
 
         let error = formValidate(form);
         let formData = new FormData(form);
 
-        if(error === 0){
+        let nameInput = document.getElementById('formName');
+        if (nameInput.value === 'RobertMic') {
+            alert('Chyba při odesílání formuláře');
+            return;
+        }
+
+        let recaptchaResponse = grecaptcha.getResponse();
+        if (recaptchaResponse.length === 0) {
+            alert('Potvrďte, že nejste robot.');
+            return;
+        }
+
+        if (error === 0) {
             form.classList.add('_sending');
             let response = await fetch('sendmail.php', {
                 method: 'POST',
                 body: formData
             });
 
-            if(response.ok){
+            if (response.ok) {
                 form.reset();
                 form.classList.remove('_sending');
             } else {
                 alert('Chyba při odesílání formuláře');
                 form.classList.remove('_sending');
             }
-        }
-        else 
+        } else
             alert('Vyplňte všechna pole');
     }
 
 
-    function formValidate(form){
+    function formValidate(form) {
         let error = 0;
         let formReq = document.querySelectorAll('._req');
 
-        for(let index = 0; index < formReq.length; index++)
-        {
+        for (let index = 0; index < formReq.length; index++) {
             const input = formReq[index];
 
             formRemoveError(input);
 
-            if (input.classList.contains('_email')){
-                if(emailTest(input)){
+            if (input.classList.contains('_email')) {
+                if (emailTest(input)) {
                     formAddError(input);
                     error++;
                 }
             } else {
-                if(input.value === ''){
+                if (input.value === '') {
                     formAddError(input);
                     error++;
                 }

@@ -324,7 +324,7 @@ nav ul li {
 }
 
 
-.btn {
+.btn{
     height: 25px;
     padding: 13px 25px 13px 25px;
     color: var(--white);
@@ -339,6 +339,24 @@ nav ul li {
     text-decoration: none !important;
     text-transform: uppercase;
     font-family: 'Open Sans', sans-serif !important;
+}
+
+.form_button{
+    padding: 13px 25px 13px 25px;
+    background-color: transparent;
+    color: var(--black);
+    border-radius: 2px;
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 25px;
+    font-weight: 700;
+    text-align: center;
+    border-radius: 2px;
+    text-decoration: none !important;
+    text-transform: uppercase;
+    font-family: 'Open Sans', sans-serif !important;
+    border-color: var(--black);
+    width: 30%;
 }
 
 .btn:hover {
